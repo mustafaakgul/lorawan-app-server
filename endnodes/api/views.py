@@ -3,7 +3,7 @@ from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView
 )
-from enddevices.models import EndDevice
+from endnodes.models import EndDevice
 from .serializers import EndDeviceSerializer
 
 

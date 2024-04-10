@@ -47,8 +47,8 @@ INSTALLED_APPS = [
 
     # Third-party
 
-    "enddevices",
-    "Gateway",
+    "endnodes",
+    "gateways",
     #"LoRa",
     #"User",
     "rest_framework",

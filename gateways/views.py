@@ -115,7 +115,7 @@ def AddGateway(request):
         print (createGatewayResponse)
 
         if (createGatewayResponse == "OK"):
-            messages.add_message(request, messages.SUCCESS, "Gateway Added!")
+            messages.add_message(request, messages.SUCCESS, "gateways Added!")
             gateway.save()
         else:
             messages.add_message(request, messages.ERROR, "Progress Error!")
