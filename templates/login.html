@@ -1,0 +1,97 @@
+{% extends "base_site.html" %}
+
+{% block title %} Login {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+  <!-- Animate.css -->
+  <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block body_class %}login{% endblock body_class %}
+
+{% block body %}
+  <div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+      <div class="animate form login_form">
+        <section class="login_content">
+          <form method="post">
+          {% csrf_token %}
+
+            <h1>Login Form</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="Username" required="" name="username" value="{{ username }}"/>
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" required="" name="password" value="{{ password }}"/>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-default submit">Log in</button>
+              <a class="reset_pass" href="#">Lost your password?</a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">
+                <a href="#signup" class="to_register"> Create Account </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+              <div>
+                <h1><img src="/static/images/simge_buyuk.png" height="20" width="20"> LoRa IoT </h1>
+                <p>©2020 All Rights Reserved.</p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div id="register" class="animate form registration_form">
+        <section class="login_content">
+          <form method="post">
+            {% csrf_token %}
+            <h1>Create Account</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="Username" required="" name="username" value="{{ username }}"/>
+            </div>
+            <div>
+              <input type="email" class="form-control" placeholder="Email" required="" name="email" value="{{ email }}"/>
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" required="" name="password" value="{{ password }}"/>
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password Validation" required="" name="confirm" value="{{ confirm }}"/>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-default submit">Register</button>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">
+                <a href="#signin" class="to_register"> Log in </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+              <div>
+                <h1><img src="/static/images/simge_buyuk.png" height="20" width="20"> LoRa IoT </h1>
+                <p>©2020 All Rights Reserved.</p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+

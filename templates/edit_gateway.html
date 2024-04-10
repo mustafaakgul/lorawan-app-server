@@ -1,0 +1,94 @@
+{% extends "base_site.html" %}
+
+{% block title %} Add New Gateways {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+<style>
+
+.gatewayLink{
+  color:blue;
+  position:fixed;
+  left=100px;
+  top=500px;
+  text-decoration:underline;
+}
+
+</style>
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Edit Selected Gateway</h3>
+        </div>
+
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Gateway Settings</h2>
+              <ul class="nav navbar-right panel_toolbox">
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                  {% csrf_token %}
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gateway-name">Gateway Name <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gateway-name" placeholder="Gateway Name" name="gatewayName" value="{{ gatewayName }}" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gateway-eui">Gateway EUI <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gateway-eui" placeholder="Gateway EUI" readonly="readonly" name="gatewayEui" value="{{ gatewayEui }}" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gateway-description">Gateway Description <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gateway-description" placeholder="Gateway Description" name="gatewayDescription" value="{{ gatewayDescription }}" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Type of Gateway</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="gender" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="indoor" value="indoor"> &nbsp; Indoor &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="outdoor" value="outdoor"> Outdoor
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="submit" class="btn btn-success">Edit Gateway</button>
+                    {% comment %} <a href="/gateways/" class="gatewayLink">Show Gateways</a> {% endcomment %}
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

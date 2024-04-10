@@ -1,0 +1,85 @@
+{% extends "base_site.html" %}
+
+{% block title %} Gateways {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class = "right_col" role="main">
+<div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Gateways <small>You can see the all gateways in this table.</small></h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                {% comment %} <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li> {% endcomment %}
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+              <p>For add new gateway <a href="add/" style=color:blue;text-decoration:underline;>click here!</a></p>
+              <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Gateway Status</th>
+                  <th scope="col">Gateway Name</th>
+                  <th scope="col">Gateway Description</th>
+                  <th scope="col">Gateway EUI</th>
+                  <th scope="col">Gateway Type</th>
+                  <th scope="col">Gateway Created By</th>
+                  <th scope="col">Gateway Created Date</th>
+                  <th scope="col">Gateway Last Seen</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for gateway in gateways %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  {% if gateway.6 == "Connected" %}
+                  <td><img src="/static/images/connected_icon.png" alt="Connected" height=20px weight=20px></td>
+                  {% else %}
+                  <td><img src="/static/images/disconnected_icon.png" alt="Disconnected" height=20px weight=20px></td>
+                  {% endif %}
+                  <td>{{gateway.gatewayName}}</td>
+                  <td>{{gateway.gatewayDescription}}</td>
+                  <td>{{gateway.gatewayEui}}</td>
+                  <td>{{gateway.typeofGateway}}</td>
+                  <td>{{gateway.author}}</td>
+                  <td>{{gateway.gatewayCreatedDate}}</td>
+                  <td>{{gateway.gatewayLastSeen}}</td>
+                  <td><a style=color:red;text-decoration:underline; href="state/{{gateway.id}}/">Edit</a></td>
+                  <td><a style=color:red;text-decoration:underline; href="delete/{{gateway.id}}/">Delete</a></td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+</div>
+
