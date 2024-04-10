@@ -4,7 +4,6 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 app_name = "endnode"
 
 urlpatterns = [
@@ -18,5 +17,4 @@ urlpatterns = [
     path("add/activation/<int:id>/", views.AddEndNodeActivation, name = "addendnodeactivation"),
     path("activation/<int:id>/", views.GetEndNodeActivation, name = "getendnodeactivation"),
     path("delete/activation/<int:id>/", views.DeleteEndNodeActivation, name = "deleteendnodeactivation"),
-
 ]
