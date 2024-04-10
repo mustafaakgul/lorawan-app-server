@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Enddevice.models import EndDevice
+from enddevices.models import EndDevice
 
 class EndDeviceSerializer(serializers.ModelSerializer):
     class Meta:

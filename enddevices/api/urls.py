@@ -10,7 +10,7 @@ urlpatterns = [
     path('<pk>', EndDeviceDetailView.as_view()),
 ]"""
 
-from Enddevice.api.views import EndDeviceViewSet
+from enddevices.api.views import EndDeviceViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()

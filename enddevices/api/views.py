@@ -3,7 +3,7 @@ from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView
 )
-from Enddevice.models import EndDevice
+from enddevices.models import EndDevice
 from .serializers import EndDeviceSerializer
 
 
@@ -19,7 +19,7 @@ class EndDeviceDetailView(RetrieveAPIView):
     permission_classes = (permissions.AllowAny, )
 """
 from rest_framework import viewsets
-from Enddevice.models import EndDevice
+from enddevices.models import EndDevice
 from .serializers import EndDeviceSerializer
 
 class EndDeviceViewSet(viewsets.ModelViewSet):
